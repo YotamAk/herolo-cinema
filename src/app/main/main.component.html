@@ -1,11 +1,11 @@
  
  <app-header></app-header>
 
-<!-- Books list -->
+<!-- Movies list -->
 <section id="team" class="pb-5">
     <div class="container">
         <div class="row">
-            <!-- Book -->
+            <!-- Movie -->
             <div *ngFor="let movie of movieListUpdated" class="col-xs-12 col-sm-6 col-md-4" >
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
@@ -30,14 +30,9 @@
                                     <ul class="list-inline">
 
                                         <li class="list-inline-item" (click)="setDeleteMovie(movie)" date-toggle="modal" data-target="#delete-movie-modal"><a date-toggle="modal" data-target="#exampleModal" class="fa fa-trash"><span></span></a></li>
-
-                                        <!-- <li class="list-inline-item" >
-                                          <button (click)="setDeleteMovie(movie)" date-toggle="modal" data-target="#delete-movie-modal" type="button" class="btn btn-danger"><a date-toggle="modal" data-target="#exampleModal" class="fa fa-trash"><span></span></a>delete</button>
-                                        </li> -->
-
+                                        
                                         <li class="list-inline-item">
-                                          <button  type="button" class="btn btn-outline-secondary">Edit</button>
-                                          <!-- <li (click)="setDeleteBook(book)" date-toggle="modal" data-target="#delete-book-modal"><a date-toggle="modal" data-target="#exampleModal" class="fa fa-trash"><span></span></a></li> -->
+                                          <button  type="button" class="btn btn-outline-secondary">Edit</button> 
                                         </li>
                                     </ul>
                                 </div>
@@ -46,12 +41,12 @@
                     </div>
                 </div>
             </div>
-            <!-- ./Book -->
+            <!-- ./Movie -->
 
         </div>
     </div>
 </section>
-<!-- Books list -->
+<!-- Movies list -->
   
 <!-- Delete confirmation box -->
 <!-- Modal -->
@@ -74,3 +69,7 @@
       </div>
   </div>
 </div>
+
+<app-add-movie  [id]="id">
+
+  </app-add-movie>

@@ -14,7 +14,8 @@ export class MainComponent {
   moviesTitles = [ "Bohemian Rhapsody","Wonder Woman", "Justice League"];
   movieList : any[] = [];
   movieListUpdated : any[] = [];
-  movie: any;
+  titles: string[] = [];
+  movie : any;
   delete_movie : movie;
   id = 0;
 
@@ -41,6 +42,8 @@ export class MainComponent {
          this.movieListUpdated.push(this.movie);
      } )
  }
+
+ //delete functions
  setDeleteMovie(movie: movie){
   this.delete_movie = movie;
   jQuery("#delete-movie-modal").modal("show");
