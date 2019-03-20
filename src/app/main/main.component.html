@@ -45,6 +45,10 @@
 
         </div>
     </div>
+
+    <!-- open add modal -->
+    <button  type="button" class="btn btn-primary btn-lg btn-block" (click)="addMovieModal()" date-toggle="modal" data-target="#add-movie-modal"><a date-toggle="modal" data-target="#exampleModal"><span></span></a>Add New Movie</button>
+
 </section>
 <!-- Movies list -->
   
@@ -70,6 +74,6 @@
   </div>
 </div>
 
-<app-add-movie  [id]="id">
+<app-add-movie *ngIf="isAddShown" [movie_id]="movie_id" (addMovieEvent)="saveMovie($event) ">
 
-  </app-add-movie>
+</app-add-movie>

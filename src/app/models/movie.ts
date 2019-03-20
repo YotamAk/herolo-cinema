@@ -1,8 +1,9 @@
-export class movie {
-    id : string;
+export class Movie {
+    movie_id : number;
     Title: string;
-    Year: number;
+    Year: Date;
     Runtime: number;
     Genre:string;
     Director: string;
+    Poster: string;
 }

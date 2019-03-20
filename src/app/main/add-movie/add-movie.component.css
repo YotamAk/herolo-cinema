@@ -1,0 +1,16 @@
+.edit-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-row input {
+    display: inline;
+}
+
+.edit-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+}
+

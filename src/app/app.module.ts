@@ -1,6 +1,8 @@
 import { NgModule }         from '@angular/core';
 import { BrowserModule }    from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { CinemaService } from '../common/services/cinema.service';
 
@@ -20,7 +22,9 @@ import { AddMovieComponent } from './main/add-movie/add-movie.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [CinemaService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { movie } from '../../models/movie';
+import { Movie } from '../../models/movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 declare var jQuery:any;
 @Component({
@@ -8,30 +8,31 @@ declare var jQuery:any;
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent implements OnInit {
-  @Input() id: number; 
-  @Output() addMovieEvent = new EventEmitter<movie>();
+  @Input() movie_id: number;
+  @Output() addMovieEvent = new EventEmitter<Movie>();
   
-  editForm: FormGroup;
-
-  model = new movie ;
+  model = new Movie() ;
+ 
   
-  constructor() {}
+  
+  constructor() {
+    
+  }
 
   ngOnInit() {
+    console.log(this.movie_id);
+    jQuery("#add-movie-modal").modal("show");
+  }
+
+  addNewMovie(){
+    jQuery("#add-movie-modal").modal("hide");
+    this.model.movie_id= this.movie_id;
+    this.addMovieEvent.emit(this.model);
   }
 
 
-  // Methods
-saveMovie(){
-  this.addMovieEvent.emit(this.editForm.value);
-  this.reset();
-}
-
 reset(){
   jQuery("#add-movie-modal").modal("hide");
-  this.editForm.reset(this.editForm.value);
 }
-
-
 
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter,ViewChild } from '@angular/core';
 import { CinemaService } from '../../common/services/cinema.service';
-import { movie } from '../models/movie';
- 
+import { Movie } from '../models/movie';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+
 declare var jQuery:any;
 
 @Component({
@@ -12,12 +13,13 @@ declare var jQuery:any;
 
 export class MainComponent {
   moviesTitles = [ "Bohemian Rhapsody","Wonder Woman", "Justice League"];
-  movieList : any[] = [];
+ 
   movieListUpdated : any[] = [];
-  titles: string[] = [];
   movie : any;
-  delete_movie : movie;
-  id = 0;
+  delete_movie : Movie;
+  movie_id = 0;
+  isAddShown = false;
+  
 
   constructor(private cinemaService : CinemaService) {
     this.pushMoviesToList();
@@ -37,23 +39,31 @@ export class MainComponent {
        .getMovieByTitle(title)
        .subscribe(movie => {
          this.movie = movie;
-         this.movie.id = this.id;
-         this.id++;
+         this.movie.id = this.movie_id;
+         this.movie_id++;
          this.movieListUpdated.push(this.movie);
      } )
  }
 
  //delete functions
- setDeleteMovie(movie: movie){
+ setDeleteMovie(movie: Movie){
   this.delete_movie = movie;
   jQuery("#delete-movie-modal").modal("show");
   console.log(movie);
 }
- deleteMovie(movie : movie){
+ deleteMovie(movie : Movie){
    this.movieListUpdated.splice(this.movieListUpdated.indexOf(movie),1)
   //  this.toastMessage(`${movie.title} has been deleted `,'alert-danger',3000);
   jQuery("#delete-movie-modal").modal("hide");
-  console.log(movie);
  }
+
+ addMovieModal(){
+  this.isAddShown = true;
+  console.log('yes')
+}
+
+saveMovie(data){
+  this.movieListUpdated.push(data);
+}
 
 }
