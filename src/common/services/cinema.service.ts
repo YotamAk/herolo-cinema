@@ -10,7 +10,7 @@ export class CinemaService {
   constructor(private http: HttpClient) { }
 
     checkMe:any;
-    ApiUrl :string = "http://www.omdbapi.com/?apikey=591a262b&t=";
+    ApiUrl :string = "https://www.omdbapi.com/?apikey=591a262b&t=";
     metaDataBaseUrl: string = "../assets/data"; 
 
     getMovieByTitle(title){

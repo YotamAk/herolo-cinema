@@ -12,7 +12,7 @@ declare var jQuery:any;
 })
 
 export class MainComponent {
-  moviesTitles = [ "Bohemian Rhapsody","Wonder Woman", "Justice League"];
+  moviesTitles = [ "Bohemian Rhapsody","Wonder Woman", "Justice League", "Fight Club", "Inception", "Toy Story"];
  
   movieListUpdated : any[] = [];
   movie : any;
